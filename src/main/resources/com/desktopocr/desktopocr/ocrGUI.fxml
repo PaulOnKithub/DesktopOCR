@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.desktopocr.desktopocr.Controller">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator layoutX="298.0" orientation="VERTICAL" prefHeight="407.0" prefWidth="6.0" />
+            <ImageView fx:id="imageViewArea" accessibleText="Please Select An Image" fitHeight="310.0" fitWidth="295.0" layoutX="1.0" layoutY="5.0" pickOnBounds="true" />
+            <Button fx:id="preProcessButton" layoutX="1.0" layoutY="321.0" mnemonicParsing="false" onAction="#onStartPreProcess" prefHeight="51.0" prefWidth="94.0" text=" Pre - Process" />
+            <Button fx:id="startButton" layoutX="204.0" layoutY="321.0" mnemonicParsing="false" onAction="#onStartProcess" prefHeight="51.0" prefWidth="94.0" text="Start" />
+            <ProgressBar fx:id="progressBar" layoutX="1.0" layoutY="376.0" prefHeight="27.0" prefWidth="296.0" progress="0.0" />
+            <TextArea fx:id="resultsArea" accessibleText="OCR Options" layoutX="301.0" layoutY="3.0" prefHeight="342.0" prefWidth="298.0" />
+            <Button fx:id="saveToFileButton" layoutX="403.0" layoutY="350.0" mnemonicParsing="false" onAction="#onSaveToFileAction" prefHeight="53.0" prefWidth="99.0" text="Save Results" />
+         </children>
+      </Pane>
+   </center>
+   <top>
+      <Pane prefHeight="49.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="imageSelector" layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#onImageSelect" prefHeight="48.0" prefWidth="91.0" text="Select Image" />
+            <Button fx:id="resetButton" layoutX="508.0" layoutY="1.0" mnemonicParsing="false" onAction="#onResetAction" prefHeight="48.0" prefWidth="91.0" text="Reset" />
+            <ChoiceBox fx:id="ocrOptions" accessibleText="Select OCR Mode" layoutX="246.0" layoutY="1.0" prefHeight="49.0" prefWidth="125.0" />
+            <Label alignment="CENTER_RIGHT" layoutX="169.0" layoutY="2.0" prefHeight="46.0" prefWidth="77.0" text="OCR Mode: " />
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <Pane prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label contentDisplay="CENTER" layoutX="3.0" layoutY="5.0" prefHeight="37.0" prefWidth="112.0" text="Connection Status :" />
+            <Button fx:id="settingsButton" layoutX="300.0" layoutY="11.0" mnemonicParsing="false" onAction="#onSettingsClick" prefHeight="25.0" prefWidth="127.0" text="Settings" />
+            <Button fx:id="Exit" layoutX="453.0" layoutY="12.0" mnemonicParsing="false" onAction="#onExitAction" prefHeight="25.0" prefWidth="133.0" text="Exit" />
+            <Label fx:id="connectionLabel" layoutX="115.0" layoutY="11.0" prefHeight="27.0" prefWidth="148.0" />
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>
