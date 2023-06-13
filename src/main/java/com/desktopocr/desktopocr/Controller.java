@@ -1,5 +1,6 @@
 package com.desktopocr.desktopocr;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,9 +14,12 @@ import javafx.stage.Window;
 
 import java.io.File;
 import java.net.InetAddress;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ResourceBundle;
+
+import static javafx.scene.image.Image.*;
 
 public class Controller implements Initializable {
 
@@ -71,7 +75,8 @@ public class Controller implements Initializable {
 
     @FXML
     void onExitAction(ActionEvent event) {
-
+        Platform.exit();
+        event.consume();
     }
 
     @FXML
@@ -98,7 +103,12 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void onResetAction(ActionEvent event) {
+    void onResetAction(ActionEvent event) throws MalformedURLException {
+        ocrOptions.setValue(null);
+
+        URL imageURL=new URL("E:\\Devs\\FX projects\\DesktopOCR\\placeholderImage.jpg");
+        Image placeHolderImage=new Image(imageURL.toString());
+        imageViewArea.setImage(placeHolderImage);
 
     }
 
@@ -131,7 +141,7 @@ public class Controller implements Initializable {
         }
     }
 
-    @Override
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ocrOptions.getItems().addAll("Local Processing","Cloud Processing");
         boolean connectionResult;

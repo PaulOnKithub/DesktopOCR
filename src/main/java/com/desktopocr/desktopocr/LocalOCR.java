@@ -22,7 +22,7 @@ public class LocalOCR {
 
     String performOCR(String imagePath)  {
         tess=new Tesseract();//Creating and configuring new tesseract object
-        tess.setDatapath("C:\\Users\\User\\Desktop\\Devs\\JavaML\\Tesseract");
+        tess.setDatapath("E:\\Devs\\JavaML\\Tesseract");
         tess.setLanguage("eng");
 
         Mat image= Imgcodecs.imread(imagePath);//Transforming passed image to Matrix form

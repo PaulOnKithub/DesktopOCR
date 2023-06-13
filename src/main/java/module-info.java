@@ -15,6 +15,7 @@ module com.desktopocr.desktopocr {
     requires opencv;
     requires com.sun.jna;
     requires jai.imageio.core;
+    requires google.cloud.vision;
 
     opens com.desktopocr.desktopocr to javafx.fxml;
     exports com.desktopocr.desktopocr;
