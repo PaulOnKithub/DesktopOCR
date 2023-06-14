@@ -105,9 +105,9 @@ public class Controller implements Initializable {
     @FXML
     void onResetAction(ActionEvent event) throws MalformedURLException {
         ocrOptions.setValue(null);
+        resultsArea.setText(null);
 
-        URL imageURL=new URL("E:\\Devs\\FX projects\\DesktopOCR\\placeholderImage.jpg");
-        Image placeHolderImage=new Image(imageURL.toString());
+        Image placeHolderImage=new Image("file:\\E:\\Devs\\FX projects\\DesktopOCR\\placeholderImage.jpg");
         imageViewArea.setImage(placeHolderImage);
 
     }
