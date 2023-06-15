@@ -16,6 +16,12 @@ module com.desktopocr.desktopocr {
     requires com.sun.jna;
     requires jai.imageio.core;
     requires google.cloud.vision;
+    requires gax;
+    requires com.google.auth.oauth2;
+    requires protobuf.java;
+    requires proto.google.cloud.vision.v1;
+    //requires proto.google.cloud.vision.v1;
+    //requires com.google.protobuf;
 
     opens com.desktopocr.desktopocr to javafx.fxml;
     exports com.desktopocr.desktopocr;

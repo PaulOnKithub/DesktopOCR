@@ -38,12 +38,6 @@ public class Controller implements Initializable {
     private ImageView imageViewArea;
 
     @FXML
-    private Button preProcessButton;
-
-    @FXML
-    private ProgressBar progressBar;
-
-    @FXML
     private Button resetButton;
 
     @FXML
@@ -123,12 +117,6 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void onStartPreProcess(ActionEvent event) {
-
-
-    }
-
-    @FXML
     void onStartProcess(ActionEvent event) {
         String selectedMode=ocrOptions.getValue();
         String recognizedText;
@@ -137,6 +125,9 @@ public class Controller implements Initializable {
                 LocalOCR localOCR=new LocalOCR();
                 recognizedText=localOCR.performOCR(imageURLPath);
                 resultsArea.setText(recognizedText);
+            }else if (selectedMode.equals("Cloud Processing")){
+                String cloudRecognizedText=CloudOCR.cloudFactoryMethod(imageURLPath);
+                resultsArea.setText(cloudRecognizedText);
             }
         }
     }
